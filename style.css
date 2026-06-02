@@ -2141,6 +2141,90 @@ html[data-theme="light"] .progetto-card-content {
     flex: 1 1 100%;
     min-height: 42px;
   }
+
+  #playground .section-header-editorial {
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+  }
+
+  #playground .section-number {
+    margin-bottom: 6px;
+    font-size: 10px;
+  }
+
+  #playground .section-title-asymmetric {
+    font-size: 32px;
+  }
+
+  #playground .playground-grid {
+    gap: 14px;
+    align-items: start;
+  }
+
+  #playground .playground-visual-panel {
+    order: -1;
+  }
+
+  #playground .room-simulator {
+    aspect-ratio: 16 / 10;
+    max-height: 34svh;
+  }
+
+  #playground .playground-controls-panel {
+    display: grid;
+    gap: 12px;
+  }
+
+  #playground .panel-subtitle,
+  #playground .playground-intro {
+    display: none;
+  }
+
+  #playground .playground-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 0;
+  }
+
+  #playground .playground-btn {
+    min-height: 68px;
+    padding: 12px 10px;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  #playground .btn-indicator {
+    margin-top: 5px;
+  }
+
+  #playground .btn-label-wrap h4 {
+    font-size: 12px;
+    line-height: 1.25;
+    letter-spacing: 0.03em;
+  }
+
+  #playground .btn-label-wrap p {
+    display: none;
+  }
+
+  #playground .dimmer-playground-wrap {
+    padding-top: 14px;
+  }
+
+  #playground .playground-dimmer-labels {
+    margin-bottom: 6px;
+  }
+
+  #playground .playground-dimmer-labels label {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+  }
+
+  #playground .playground-dimmer-labels span {
+    font-size: 11px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -2284,6 +2368,71 @@ html[data-theme="light"] .progetto-card-content {
   .footer-bottom p {
     font-size: 11px;
     line-height: 1.6;
+  }
+
+  #playground .section-header-editorial {
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+  }
+
+  #playground .section-title-asymmetric {
+    font-size: 28px;
+  }
+
+  #playground .playground-grid {
+    gap: 12px;
+  }
+
+  #playground .room-simulator {
+    aspect-ratio: 16 / 9;
+    max-height: 28svh;
+  }
+
+  #playground .playground-buttons {
+    gap: 8px;
+  }
+
+  #playground .playground-btn {
+    min-height: 60px;
+    padding: 10px 8px;
+    gap: 8px;
+  }
+
+  #playground .btn-label-wrap h4 {
+    font-size: 11px;
+    line-height: 1.2;
+  }
+
+  #playground .dimmer-playground-wrap {
+    padding-top: 12px;
+  }
+
+  #playground .playground-dimmer-labels {
+    gap: 4px;
+    margin-bottom: 4px;
+  }
+
+  #playground .playground-dimmer-labels label,
+  #playground .playground-dimmer-labels span {
+    font-size: 10px;
+  }
+
+  #playground .playground-slider {
+    height: 2px;
+  }
+
+  #playground .playground-slider.kelvin-slider {
+    height: 3px;
+  }
+
+  #playground .playground-slider::-webkit-slider-thumb {
+    width: 9px;
+    height: 9px;
+  }
+
+  #playground .playground-slider::-moz-range-thumb {
+    width: 9px;
+    height: 9px;
   }
 }
 
