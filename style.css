@@ -91,6 +91,8 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--header-height);
   background-color: var(--bg-primary);
+  width: 100%;
+  overflow-x: clip;
 }
 
 body {
@@ -101,6 +103,8 @@ body {
   font-weight: 300;
   line-height: 1.8;
   letter-spacing: -0.01em;
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.6s ease, color 0.6s ease;
@@ -176,9 +180,13 @@ a {
 main {
   position: relative;
   z-index: 1;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 .section-container {
+  width: 100%;
   padding: 160px 24px;
   max-width: var(--container-width);
   margin: 0 auto;
@@ -400,6 +408,7 @@ main {
 }
 
 .hero-content {
+  width: 100%;
   max-width: 800px;
   margin-top: 40px;
 }
@@ -440,6 +449,7 @@ main {
 .hero-actions {
   display: flex;
   gap: 24px;
+  width: 100%;
 }
 
 .btn {
@@ -454,6 +464,7 @@ main {
   text-transform: uppercase;
   cursor: pointer;
   transition: var(--transition-fast);
+  text-align: center;
 }
 
 .btn-primary {
@@ -480,6 +491,7 @@ main {
 
 .hero-notice-card {
   margin-top: 60px;
+  width: 100%;
   max-width: 580px;
   padding: 16px 24px;
   border: 1px solid var(--color-border);
@@ -1855,6 +1867,7 @@ html[data-theme="light"] .progetto-card-content {
 
   .hero-content {
     margin-top: 0;
+    max-width: 100%;
   }
 
   .hero-tagline {
@@ -1878,12 +1891,16 @@ html[data-theme="light"] .progetto-card-content {
     width: 100%;
     min-height: 48px;
     padding: 14px 18px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    line-height: 1.4;
   }
 
   .hero-notice-card {
     margin-top: 36px;
     padding: 16px 18px;
     align-items: flex-start;
+    max-width: 100%;
   }
   
   .nav-toggle {
@@ -1917,6 +1934,7 @@ html[data-theme="light"] .progetto-card-content {
   .nav-link {
     font-size: 13px;
     letter-spacing: 0.1em;
+    width: 100%;
   }
 
   .btn-contact {
@@ -1930,6 +1948,7 @@ html[data-theme="light"] .progetto-card-content {
   .modal-body {
     grid-template-columns: 1fr;
     gap: 28px;
+    width: 100%;
   }
 
   .azienda-main-text .lead-text,
@@ -1976,6 +1995,7 @@ html[data-theme="light"] .progetto-card-content {
 
   .servizi-grid, .progetti-grid, .cert-grid {
     grid-template-columns: 1fr;
+    width: 100%;
   }
 
   .servizio-card-advanced {
@@ -2031,6 +2051,7 @@ html[data-theme="light"] .progetto-card-content {
 
   .progetto-card-flashlight {
     height: 360px;
+    width: 100%;
   }
 
   .progetto-card-content {
@@ -2137,6 +2158,7 @@ html[data-theme="light"] .progetto-card-content {
 
   .section-container {
     padding: 72px 14px;
+    width: 100%;
   }
 
   .section-container.alt-bg > * {
@@ -2150,6 +2172,8 @@ html[data-theme="light"] .progetto-card-content {
 
   .hero-title {
     font-size: 32px;
+    max-width: 100%;
+    overflow-wrap: anywhere;
   }
 
   .section-title-asymmetric {
@@ -2166,6 +2190,7 @@ html[data-theme="light"] .progetto-card-content {
   .hero-notice-card {
     padding: 14px;
     gap: 12px;
+    width: 100%;
   }
 
   .notice-text {
@@ -2198,6 +2223,7 @@ html[data-theme="light"] .progetto-card-content {
 
   .playground-btn {
     padding: 14px;
+    width: 100%;
   }
 
   .playground-dimmer-labels {
@@ -2208,6 +2234,11 @@ html[data-theme="light"] .progetto-card-content {
 
   .progetto-card-flashlight {
     height: 320px;
+  }
+
+  .btn {
+    font-size: 11px;
+    letter-spacing: 0.08em;
   }
 
   .progetto-card-content h3 {
