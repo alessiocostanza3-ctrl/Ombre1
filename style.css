@@ -922,11 +922,12 @@ html[data-theme="light"] .btn-label-wrap p {
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
-  height: 3px;
+  height: 14px;
   background: var(--color-border);
-  border-radius: 1.5px;
+  border-radius: 999px;
   outline: none;
-  cursor: ew-resize;
+  cursor: pointer;
+  touch-action: pan-y;
 }
 
 html[data-theme="light"] .playground-slider {
@@ -934,19 +935,21 @@ html[data-theme="light"] .playground-slider {
 }
 
 .playground-slider.kelvin-slider {
-  height: 4px;
-  border-radius: 2px;
+  height: 14px;
+  border-radius: 999px;
   background: linear-gradient(to right, #ffb464, #ffd296, #fff0dc, #e1ecff, #b4d2ff);
 }
 
 .playground-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 10px;
-  height: 10px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   background: var(--color-accent);
   cursor: pointer;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 0 4px rgba(var(--color-accent-rgb), 0.16);
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
 }
 
@@ -956,12 +959,13 @@ html[data-theme="light"] .playground-slider {
 }
 
 .playground-slider::-moz-range-thumb {
-  width: 10px;
-  height: 10px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   background: var(--color-accent);
-  border: none;
+  border: 2px solid rgba(255, 255, 255, 0.85);
   cursor: pointer;
+  box-shadow: 0 0 0 4px rgba(var(--color-accent-rgb), 0.16);
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
 }
 
@@ -2418,21 +2422,25 @@ html[data-theme="light"] .progetto-card-content {
   }
 
   #playground .playground-slider {
-    height: 2px;
+    height: 20px;
   }
 
   #playground .playground-slider.kelvin-slider {
-    height: 3px;
+    height: 20px;
   }
 
   #playground .playground-slider::-webkit-slider-thumb {
-    width: 9px;
-    height: 9px;
+    width: 24px;
+    height: 24px;
+    border-width: 2px;
+    box-shadow: 0 0 0 5px rgba(var(--color-accent-rgb), 0.18);
   }
 
   #playground .playground-slider::-moz-range-thumb {
-    width: 9px;
-    height: 9px;
+    width: 24px;
+    height: 24px;
+    border-width: 2px;
+    box-shadow: 0 0 0 5px rgba(var(--color-accent-rgb), 0.18);
   }
 }
 
