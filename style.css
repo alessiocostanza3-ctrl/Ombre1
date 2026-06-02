@@ -106,6 +106,10 @@ body {
   transition: background-color 0.6s ease, color 0.6s ease;
 }
 
+body.nav-open {
+  overflow: hidden;
+}
+
 /* Premium Technical Scrollbar */
 ::-webkit-scrollbar {
   width: 4px;
@@ -316,6 +320,18 @@ main {
   height: 1px;
   background-color: var(--color-text);
   transition: var(--transition-fast);
+}
+
+.nav-toggle.open span:nth-child(1) {
+  transform: translateY(5px) rotate(45deg);
+}
+
+.nav-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.open span:nth-child(3) {
+  transform: translateY(-5px) rotate(-45deg);
 }
 
 .nav-menu ul {
@@ -1743,6 +1759,10 @@ html[data-theme="light"] .progetto-card-content {
   .section-container {
     padding: 100px 24px;
   }
+
+  .section-header-editorial {
+    margin-bottom: 56px;
+  }
   
   .hero-title {
     font-size: 56px;
@@ -1767,23 +1787,103 @@ html[data-theme="light"] .progetto-card-content {
   .progetti-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .progetto-card-flashlight {
+    height: 380px;
+  }
+
+  .modal-container {
+    width: calc(100% - 32px);
+    max-height: calc(100vh - 48px);
+  }
 }
 
 @media (max-width: 768px) {
   :root {
     --header-height: 80px;
   }
+
+  .editorial-grid-lines {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .header-container {
+    padding: 0 18px;
+  }
+
+  .header-actions-wrap {
+    gap: 16px;
+  }
+
+  .logo-text {
+    font-size: 13px;
+    letter-spacing: 0.18em;
+  }
+
+  .toggle-text-theme {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+  }
   
   .hero-title {
     font-size: 40px;
   }
+
+  .section-container {
+    padding: 84px 18px;
+  }
+
+  .section-container.alt-bg > * {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .section-header-editorial {
+    margin-bottom: 40px;
+    padding-bottom: 16px;
+  }
+
+  .section-title-asymmetric {
+    font-size: 38px;
+    line-height: 1.08;
+  }
+
+  .hero-section {
+    min-height: auto;
+    padding: calc(var(--header-height) + 20px) 18px 56px;
+  }
+
+  .hero-content {
+    margin-top: 0;
+  }
+
+  .hero-tagline {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    line-height: 1.6;
+  }
+
+  .hero-description {
+    font-size: 15px;
+    line-height: 1.75;
+    margin-bottom: 32px;
+  }
   
   .hero-actions {
     flex-direction: column;
+    gap: 14px;
   }
   
   .btn {
     width: 100%;
+    min-height: 48px;
+    padding: 14px 18px;
+  }
+
+  .hero-notice-card {
+    margin-top: 36px;
+    padding: 16px 18px;
+    align-items: flex-start;
   }
   
   .nav-toggle {
@@ -1797,10 +1897,11 @@ html[data-theme="light"] .progetto-card-content {
     width: 100%;
     height: calc(100vh - var(--header-height));
     background: var(--bg-primary);
-    padding: 40px 24px;
+    padding: 28px 18px 40px;
     border-top: 1px solid var(--color-border);
     transition: var(--transition-smooth);
     z-index: 1000;
+    overflow-y: auto;
   }
   
   .nav-menu.open {
@@ -1810,25 +1911,348 @@ html[data-theme="light"] .progetto-card-content {
   .nav-menu ul {
     flex-direction: column;
     align-items: flex-start;
+    gap: 18px;
+  }
+
+  .nav-link {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+  }
+
+  .btn-contact {
+    padding: 10px 14px;
+  }
+
+  .azienda-grid,
+  .settori-display-card,
+  .playground-grid,
+  .contatti-grid,
+  .modal-body {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .azienda-main-text .lead-text,
+  .editorial-quote p,
+  .sector-display-title {
+    font-size: 24px;
+  }
+
+  .editorial-quote {
+    padding-left: 18px;
+    margin: 28px 0;
+  }
+
+  .settori-tabs {
+    gap: 0;
+    margin: 0 -18px 28px;
+    padding: 0 18px 4px;
+    scrollbar-width: none;
+  }
+
+  .settori-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sector-tab-btn {
+    padding: 14px 16px;
+    font-size: 11px;
+  }
+
+  .sector-display-card {
+    min-height: auto;
     gap: 24px;
   }
-  
+
+  .sector-display-visual {
+    order: 0;
+    height: 180px;
+  }
+
+  .sector-vector-icon {
+    width: 128px;
+    height: 128px;
+  }
+
   .servizi-grid, .progetti-grid, .cert-grid {
     grid-template-columns: 1fr;
   }
-  
+
+  .servizio-card-advanced {
+    padding: 28px 22px;
+  }
+
+  .servizio-header {
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .playground-buttons {
+    margin-bottom: 28px;
+  }
+
+  .playground-btn {
+    padding: 16px 16px;
+    gap: 12px;
+  }
+
+  .btn-label-wrap h4 {
+    font-size: 14px;
+  }
+
+  .playground-visual-panel {
+    overflow: hidden;
+  }
+
+  .room-simulator {
+    aspect-ratio: 4 / 5;
+  }
+
+  .linear-catalogue-banner {
+    padding: 20px 18px;
+  }
+
+  .portfolio-filter-bar {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin: 0 -18px 28px;
+    padding: 0 18px 4px;
+    scrollbar-width: none;
+  }
+
+  .portfolio-filter-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-btn {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  .progetto-card-flashlight {
+    height: 360px;
+  }
+
+  .progetto-card-content {
+    padding: 22px 20px;
+  }
+
+  .progetto-card-content h3 {
+    font-size: 20px;
+  }
+
+  .btn-discover-editor {
+    opacity: 1;
+    transform: none;
+  }
+
+  .cert-card-advanced {
+    padding: 18px;
+  }
+
+  .info-item {
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+
+  .info-text p {
+    font-size: 16px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
+
   .contatti-form-panel {
-    padding: 24px;
+    padding: 24px 18px;
   }
   
   .linear-catalogue-banner {
     flex-direction: column;
-    gap: 20px;
-    text-align: center;
+    align-items: stretch;
+    gap: 16px;
+    text-align: left;
   }
   
   .catalogue-banner-content {
     flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .catalogue-btn {
+    width: 100%;
+  }
+
+  .modal-overlay {
+    align-items: flex-end;
+  }
+
+  .modal-container {
+    width: 100%;
+    max-width: none;
+    max-height: 88vh;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+  }
+
+  .modal-close {
+    top: 14px;
+    right: 14px;
+  }
+
+  .modal-gallery {
+    min-height: 260px;
+  }
+
+  .modal-details {
+    padding: 24px 18px 28px;
+  }
+
+  .modal-project-title {
+    font-size: 22px;
+  }
+
+  .modal-project-tools {
+    flex-wrap: wrap;
+  }
+
+  .modal-toggle-view-btn {
+    flex: 1 1 100%;
+    min-height: 42px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --header-height: 72px;
+  }
+
+  .header-container {
+    padding: 0 14px;
+  }
+
+  .header-actions-wrap {
+    gap: 12px;
+  }
+
+  .section-container {
+    padding: 72px 14px;
+  }
+
+  .section-container.alt-bg > * {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .hero-section {
+    padding: calc(var(--header-height) + 18px) 14px 44px;
+  }
+
+  .hero-title {
+    font-size: 32px;
+  }
+
+  .section-title-asymmetric {
+    font-size: 30px;
+  }
+
+  .hero-description,
+  .playground-intro,
+  .sector-display-description,
+  .azienda-main-text p {
+    font-size: 14px;
+  }
+
+  .hero-notice-card {
+    padding: 14px;
+    gap: 12px;
+  }
+
+  .notice-text {
+    font-size: 12px;
+  }
+
+  .azienda-main-text .lead-text,
+  .editorial-quote p,
+  .sector-display-title,
+  .info-title {
+    font-size: 21px;
+  }
+
+  .value-card-advanced {
+    gap: 14px;
+  }
+
+  .sector-tab-btn {
+    padding: 12px 14px;
+    font-size: 10px;
+  }
+
+  .servizio-card-advanced {
+    padding: 24px 18px;
+  }
+
+  .servizio-name {
+    font-size: 16px;
+  }
+
+  .playground-btn {
+    padding: 14px;
+  }
+
+  .playground-dimmer-labels {
+    align-items: flex-start;
+    gap: 8px;
+    flex-direction: column;
+  }
+
+  .progetto-card-flashlight {
+    height: 320px;
+  }
+
+  .progetto-card-content h3 {
+    font-size: 18px;
+  }
+
+  .filter-btn,
+  .social-link-btn,
+  .modal-toggle-view-btn {
+    font-size: 10px;
+  }
+
+  .contatti-form-panel {
+    padding: 20px 14px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 12px;
+  }
+
+  .modal-gallery {
+    min-height: 220px;
+  }
+
+  .slider-controls {
+    padding: 0 10px;
+  }
+
+  .slider-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .modal-details {
+    padding: 22px 14px 24px;
+  }
+
+  .modal-project-title {
+    font-size: 20px;
+  }
+
+  .footer-bottom p {
+    font-size: 11px;
+    line-height: 1.6;
   }
 }
 
@@ -2098,4 +2522,3 @@ html[data-theme="light"] .servizio-card-advanced p {
   user-select: none;
   -webkit-user-select: none;
 }
-

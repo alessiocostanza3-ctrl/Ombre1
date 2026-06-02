@@ -56,6 +56,15 @@ function initNavigation() {
   const navMenu = document.getElementById('navMenu');
   const navLinks = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('section');
+  const body = document.body;
+
+  function setMenuState(isOpen) {
+    if (!navToggle || !navMenu) return;
+    navToggle.classList.toggle('open', isOpen);
+    navMenu.classList.toggle('open', isOpen);
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+    body.classList.toggle('nav-open', isOpen);
+  }
 
   window.addEventListener('scroll', () => {
     if (window.scrollY > 40) {
@@ -66,17 +75,23 @@ function initNavigation() {
   });
 
   if (navToggle && navMenu) {
+    navToggle.setAttribute('aria-expanded', 'false');
     navToggle.addEventListener('click', () => {
-      navToggle.classList.toggle('open');
-      navMenu.classList.toggle('open');
+      const isOpen = !navMenu.classList.contains('open');
+      setMenuState(isOpen);
     });
   }
 
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
-      if (navToggle) navToggle.classList.remove('open');
-      if (navMenu) navMenu.classList.remove('open');
+      setMenuState(false);
     });
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      setMenuState(false);
+    }
   });
 
   const observerOptions = {
