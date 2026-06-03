@@ -964,7 +964,7 @@ function initScrollReveal() {
       header.classList.add('reveal-fade');
     }
     
-    const elementsToReveal = section.querySelectorAll('.hero-utility-panel, .trust-strip, .cta-command-bar, .audience-grid, .soluzioni-grid, .azienda-grid, .settori-tabs, .sector-display-card, .servizi-grid, .supporto-grid, .playground-grid, .linear-catalogue-banner, .portfolio-filter-bar, .progetti-grid, .cert-grid, .novita-grid, .download-grid, .highlights-grid, .contatti-grid');
+    const elementsToReveal = section.querySelectorAll('.hero-utility-panel, .trust-strip, .cta-command-bar, .audience-grid, .soluzioni-grid, .azienda-grid, .settori-tabs, .sector-display-card, .servizi-grid, .supporto-grid, .playground-grid, .linear-catalogue-banner, .portfolio-filter-bar, .progetti-grid, .cert-grid, .innovation-grid, .novita-grid, .download-grid, .highlights-grid, .contatti-grid');
     elementsToReveal.forEach(el => {
       el.classList.add('reveal-slide-up');
     });
