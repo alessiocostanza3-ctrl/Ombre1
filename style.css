@@ -1521,6 +1521,41 @@ html[data-theme="light"] .progetto-card-content {
   color: var(--color-text-muted);
 }
 
+/* --- Section: Newsroom --- */
+.novita-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.news-card {
+  border: 1px solid var(--color-border);
+  background: var(--bg-card);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.news-tag {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.news-card h3 {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.18;
+}
+
+.news-card p {
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
 /* --- Section: Highlights --- */
 .highlights-grid {
   display: grid;
@@ -2137,6 +2172,7 @@ html[data-theme="light"] .progetto-card-content {
   }
 
   .trust-strip,
+  .novita-grid,
   .download-grid,
   .highlights-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -2220,6 +2256,7 @@ html[data-theme="light"] .progetto-card-content {
   .trust-strip,
   .soluzioni-grid,
   .supporto-cards,
+  .novita-grid,
   .download-grid,
   .highlights-grid {
     grid-template-columns: 1fr;
@@ -2259,6 +2296,7 @@ html[data-theme="light"] .progetto-card-content {
   .solution-card h3,
   .support-card h3,
   .supporto-side-panel h3,
+  .news-card h3,
   .download-card h3,
   .highlight-card h3 {
     font-size: 22px;
@@ -2707,6 +2745,7 @@ html[data-theme="light"] .progetto-card-content {
   .trust-label,
   .solution-card p,
   .support-card p,
+  .news-card p,
   .download-card p,
   .highlight-card p,
   .footer-brand-block p {
