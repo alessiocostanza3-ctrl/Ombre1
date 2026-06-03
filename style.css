@@ -241,6 +241,23 @@ main {
   display: none; /* Removed the giant stroke backgrounds which looked cluttered */
 }
 
+.glass-panel {
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.05);
+}
+
+.glass-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(var(--color-accent-rgb), 0.4) 18%, rgba(var(--color-accent-rgb), 0.12) 85%, transparent 100%);
+  pointer-events: none;
+}
+
 /* --- Header / Navigation --- */
 #mainHeader {
   position: fixed;
@@ -403,13 +420,37 @@ main {
   position: relative;
 }
 
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 120px;
+  right: min(6vw, 80px);
+  width: min(34vw, 420px);
+  height: min(34vw, 420px);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--color-accent-rgb), 0.12) 0%, rgba(var(--color-accent-rgb), 0.04) 32%, transparent 70%);
+  pointer-events: none;
+  filter: blur(10px);
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 32px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--color-border) 18%, var(--color-border) 82%, transparent 100%);
+  pointer-events: none;
+}
+
 .hero-background-text {
   display: none; /* Removed giant stroke background */
 }
 
 .hero-content {
   width: 100%;
-  max-width: 800px;
+  max-width: 920px;
   margin-top: 40px;
 }
 
@@ -426,9 +467,10 @@ main {
 .hero-title {
   font-family: var(--font-title);
   font-size: 72px;
-  line-height: 1.1;
+  line-height: 1.04;
   font-weight: 300;
   margin-bottom: 30px;
+  max-width: 10.5ch;
 }
 
 .hero-title .highlight {
@@ -450,6 +492,7 @@ main {
   display: flex;
   gap: 24px;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .btn {
@@ -507,7 +550,7 @@ main {
   margin-top: 22px;
   padding: 20px 24px;
   border: 1px solid var(--color-border);
-  background: var(--bg-card);
+  background: linear-gradient(180deg, rgba(var(--color-accent-rgb), 0.04) 0%, var(--bg-card) 38%);
 }
 
 .hero-metric-list {
@@ -522,6 +565,8 @@ main {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  background: linear-gradient(180deg, rgba(var(--color-accent-rgb), 0.02) 0%, transparent 100%);
+  transition: var(--transition-fast);
 }
 
 .hero-metric-value {
@@ -583,10 +628,11 @@ main {
 .trust-card {
   border: 1px solid var(--color-border);
   padding: 22px 20px;
-  background: var(--bg-card);
+  background: linear-gradient(180deg, rgba(var(--color-accent-rgb), 0.03) 0%, var(--bg-card) 100%);
   display: flex;
   flex-direction: column;
   gap: 10px;
+  transition: var(--transition-fast);
 }
 
 .trust-value {
@@ -604,7 +650,7 @@ main {
 
 .cta-command-bar {
   border: 1px solid var(--color-border);
-  background: var(--bg-card);
+  background: linear-gradient(180deg, rgba(var(--color-accent-rgb), 0.05) 0%, var(--bg-card) 45%);
   padding: 24px 28px;
   display: flex;
   align-items: center;
@@ -644,11 +690,14 @@ main {
   text-transform: uppercase;
   color: var(--color-text);
   text-align: center;
+  background: rgba(var(--color-accent-rgb), 0.02);
+  transition: var(--transition-fast);
 }
 
 .command-link:hover {
   border-color: var(--color-accent);
   color: var(--color-accent);
+  transform: translateY(-1px);
 }
 
 /* --- Section: Audience --- */
@@ -660,11 +709,12 @@ main {
 
 .audience-card {
   border: 1px solid var(--color-border);
-  background: var(--bg-card);
+  background: linear-gradient(180deg, rgba(var(--color-accent-rgb), 0.025) 0%, var(--bg-card) 100%);
   padding: 28px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  transition: var(--transition-fast);
 }
 
 .audience-kicker {
@@ -695,11 +745,12 @@ main {
 
 .solution-card {
   border: 1px solid var(--color-border);
-  background: var(--bg-card);
+  background: linear-gradient(180deg, rgba(var(--color-accent-rgb), 0.025) 0%, var(--bg-card) 100%);
   padding: 28px;
   display: flex;
   flex-direction: column;
   gap: 18px;
+  transition: var(--transition-fast);
 }
 
 .solution-kicker {
@@ -1036,8 +1087,9 @@ html[data-theme="light"] .sector-display-visual {
 
 .support-card {
   border: 1px solid var(--color-border);
-  background: var(--bg-card);
+  background: linear-gradient(180deg, rgba(var(--color-accent-rgb), 0.025) 0%, var(--bg-card) 100%);
   padding: 26px 24px;
+  transition: var(--transition-fast);
 }
 
 .support-step {
@@ -1063,8 +1115,9 @@ html[data-theme="light"] .sector-display-visual {
 
 .supporto-side-panel {
   border: 1px solid var(--color-border);
-  background: var(--bg-card);
+  background: linear-gradient(180deg, rgba(var(--color-accent-rgb), 0.045) 0%, var(--bg-card) 40%);
   padding: 30px 28px;
+  transition: var(--transition-fast);
 }
 
 .support-panel-kicker {
@@ -1580,11 +1633,12 @@ html[data-theme="light"] .progetto-card-content {
 
 .download-card {
   border: 1px solid var(--color-border);
-  background: var(--bg-card);
+  background: linear-gradient(180deg, rgba(var(--color-accent-rgb), 0.025) 0%, var(--bg-card) 100%);
   padding: 28px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  transition: var(--transition-fast);
 }
 
 .download-tag,
@@ -1618,11 +1672,12 @@ html[data-theme="light"] .progetto-card-content {
 
 .news-card {
   border: 1px solid var(--color-border);
-  background: var(--bg-card);
+  background: linear-gradient(180deg, rgba(var(--color-accent-rgb), 0.025) 0%, var(--bg-card) 100%);
   padding: 28px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  transition: var(--transition-fast);
 }
 
 .news-tag {
@@ -1653,11 +1708,23 @@ html[data-theme="light"] .progetto-card-content {
 
 .highlight-card {
   border: 1px solid var(--color-border);
-  background: var(--bg-card);
+  background: linear-gradient(180deg, rgba(var(--color-accent-rgb), 0.025) 0%, var(--bg-card) 100%);
   padding: 28px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  transition: var(--transition-fast);
+}
+
+.audience-card:hover,
+.solution-card:hover,
+.support-card:hover,
+.news-card:hover,
+.download-card:hover,
+.highlight-card:hover,
+.trust-card:hover {
+  border-color: var(--color-border-glow);
+  transform: translateY(-2px);
 }
 
 /* --- Section: Contatti --- */
@@ -2327,6 +2394,11 @@ html[data-theme="light"] .progetto-card-content {
     font-size: 40px;
   }
 
+  .hero-section::before,
+  .hero-section::after {
+    display: none;
+  }
+
   .section-container {
     padding: 84px 18px;
   }
@@ -2444,6 +2516,10 @@ html[data-theme="light"] .progetto-card-content {
   .hero-utility-panel {
     margin-top: 16px;
     padding: 18px;
+  }
+
+  .hero-metric-list {
+    gap: 10px;
   }
 
   .hero-audience-pills {
